@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DapperDemo.Entities.Employee>
+
+@{
+    ViewBag.Title = "View all employees";
+    Layout = "_Layout";
+}
+
+<div class="text-end mb-1">
+    <a asp-controller="Employee" asp-action="New" class="btn btn-sm btn-primary"> Add</a>
+</div>
+<table class="table-hover table table-bordered table-striped">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Age</td>
+        <td>Salary</td>
+        <td>Action</td>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        var sn = 1;
+        foreach (var e in Model)
+        {
+            <tr>
+                <td>@(sn++)</td>
+                <td>@e.FirstName</td>
+                <td>@e.LastName</td>
+                <td>@e.Age</td>
+                <td>@e.Salary</td>
+                <td>
+                    <a
+                        class="btn btn-sm btn-primary"
+                        asp-action="Edit"
+                        asp-controller="Employee"
+                        asp-route-id="@e.Id">
+                        Edit
+                    </a>
+                    <a
+                        class="btn btn-sm btn-danger"
+                        asp-action="Remove"
+                        asp-controller="Employee"
+                        asp-route-id="@e.Id">
+                        Remove
+                    </a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

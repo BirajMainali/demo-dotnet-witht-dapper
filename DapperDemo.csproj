@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <UserSecretsId>aspnet-DapperDemo-AF127FE0-6BAA-46EE-A57C-BC2B4D48588D</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Dapper" Version="2.0.90" />
+        <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.7" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7" />
+        <PackageReference Include="Npgsql" Version="5.0.7" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
+    </ItemGroup>
+
+</Project>
