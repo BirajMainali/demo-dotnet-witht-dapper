@@ -30,13 +30,7 @@ namespace DapperDemo.Controllers
             try
             {
                 if (!ModelState.IsValid) return View(vm);
-                var dto = new EmployeeDto
-                {
-                    FirstName = vm.FirstName,
-                    LastName = vm.LastName,
-                    Age = vm.Age,
-                    Salary = vm.Age
-                };
+                var dto = new EmployeeDto(vm.FirstName, vm.LastName, vm.Age, vm.Salary);
                 await _employeeService.Create(dto);
                 return RedirectToAction(nameof(Index));
             }
@@ -74,13 +68,7 @@ namespace DapperDemo.Controllers
             {
                 var employee = await _employeeRepository.FinAsync(id);
                 if (!ModelState.IsValid) return View(vm);
-                var dto = new EmployeeDto
-                {
-                    FirstName = vm.FirstName,
-                    LastName = vm.LastName,
-                    Age = vm.Age,
-                    Salary = vm.Salary
-                };
+                var dto = new EmployeeDto(vm.FirstName, vm.LastName, vm.Age, vm.Salary);
                 await _employeeService.Update(employee, dto);
                 return RedirectToAction(nameof(Index));
             }
