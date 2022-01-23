@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DapperDemo.Dto;
-using DapperDemo.Repository.Interface;
+using DapperDemo.Repositories.Interface;
 using DapperDemo.Services.Interfaces;
 using DapperDemo.ViewModel;
 using Microsoft.AspNetCore.Mvc;

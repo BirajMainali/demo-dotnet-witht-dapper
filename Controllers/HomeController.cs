@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using DapperDemo.Models;
-using DapperDemo.Repository.Interface;
+using DapperDemo.Repositories.Interface;
 
 namespace DapperDemo.Controllers
 {

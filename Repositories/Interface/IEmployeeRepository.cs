@@ -1,13 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DapperDemo.Entities;
+using DapperDemo.Models;
 
-namespace DapperDemo.Repository.Interface
+namespace DapperDemo.Repositories.Interface
 {
     public interface IEmployeeRepository
     {
         Task<Employee> FinAsync(long id);
         Task<List<Employee>> GetAll();
         Task<long> GetEmployeeCount();
+        Task<int> Create(Employee employee);
+        Task<int> Update(Employee employee);
+        Task<int> Remove(long id);
     }
 }

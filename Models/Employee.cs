@@ -1,4 +1,4 @@
-﻿namespace DapperDemo.Entities
+﻿namespace DapperDemo.Models
 {
     public class Employee
     {

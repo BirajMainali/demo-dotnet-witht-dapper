@@ -1,20 +1,46 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Dapper;
-using DapperDemo.Entities;
-using DapperDemo.Manager.Interface;
+using DapperDemo.Models;
 using DapperDemo.Providers.Interface;
+using DapperDemo.Repositories.Interface;
 
-namespace DapperDemo.Manager
+namespace DapperDemo.Repositories
 {
-    public class EmployeeManager : IEmployeeManager
+    public class EmployeeRepository : IEmployeeRepository
     {
         private readonly ISqlConnectionProvider _connectionProvider;
 
-        public EmployeeManager(ISqlConnectionProvider connectionProvider)
+        public EmployeeRepository(ISqlConnectionProvider connectionProvider)
         {
             _connectionProvider = connectionProvider;
         }
 
+        public async Task<Employee> FinAsync(long id)
+        {
+            await using var conn = _connectionProvider.GetConnection();
+            const string query = @"SELECT * FROM ""Employee"" WHERE ""Id"" = @id";
+            return await conn.QueryFirstOrDefaultAsync<Employee>(query, new
+            {
+                id = id,
+            });
+        }
+
+        public async Task<List<Employee>> GetAll()
+        {
+            await using var conn = _connectionProvider.GetConnection();
+            const string query = @"SELECT * FROM ""Employee""";
+            return (await conn.QueryAsync<Employee>(query)).ToList();
+        }
+
+        public async Task<long> GetEmployeeCount()
+        {
+            await using var conn = _connectionProvider.GetConnection();
+            const string query = @"SELECT count(*) FROM ""Employee""";
+            return await conn.ExecuteScalarAsync<long>(query);
+        }
+        
         public async Task<int> Create(Employee employee)
         {
             await using var conn = _connectionProvider.GetConnection();
@@ -53,5 +79,6 @@ namespace DapperDemo.Manager
                 id = id
             });
         }
+        
     }
 }

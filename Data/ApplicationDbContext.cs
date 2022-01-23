@@ -1,4 +1,4 @@
-﻿using DapperDemo.Entities;
+﻿using DapperDemo.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace DapperDemo.Data

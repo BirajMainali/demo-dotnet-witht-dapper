@@ -1,9 +1,7 @@
-﻿using DapperDemo.Manager;
-using DapperDemo.Manager.Interface;
-using DapperDemo.Providers;
+﻿using DapperDemo.Providers;
 using DapperDemo.Providers.Interface;
-using DapperDemo.Repository;
-using DapperDemo.Repository.Interface;
+using DapperDemo.Repositories;
+using DapperDemo.Repositories.Interface;
 using DapperDemo.Services;
 using DapperDemo.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,8 +14,7 @@ namespace DapperDemo
         {
             services.AddScoped<ISqlConnectionProvider, SqlConnectionProvider>()
                 .AddScoped<IEmployeeRepository, EmployeeRepository>()
-                .AddScoped<IEmployeeService, EmployeeService>()
-                .AddScoped<IEmployeeManager, EmployeeManager>();
+                .AddScoped<IEmployeeService, EmployeeService>();
             return services;
         }
     }

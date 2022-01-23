@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DapperDemo.Dto;
-using DapperDemo.Entities;
+using DapperDemo.Models;
 
 namespace DapperDemo.Services.Interfaces
 {
